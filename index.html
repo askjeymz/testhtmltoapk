@@ -6,6 +6,12 @@
 <title>STI College</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="design.css">
+<!-- Manifest & App Icons -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0a4fa3">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="GWA Calc">
 <script src="script.js" defer></script>
 </head>
 <body>
@@ -118,5 +124,14 @@
     </div>
   </div>
 </div>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => console.log('Service Worker registered successfully!', reg))
+        .catch(err => console.log('Service Worker registration failed:', err));
+    });
+  }
+</script>
 </body>
 </html>
